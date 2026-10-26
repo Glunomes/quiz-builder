@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray, FormProvider } from "react-hook-form";
-//import { zodResolver } from "@hookform/resolvers/zod";
 import { customZodResolver } from "../utils/zodResolver";
 import { Plus } from "lucide-react";
 import { createQuizSchema, DEFAULT_BOOLEAN_QUESTION } from "../schemas/quizFormSchema";
