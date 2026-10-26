@@ -1,0 +1,153 @@
+.container {
+  padding: 1.5rem 0 3rem 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.input,
+.select {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #2563eb;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.825rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.questionCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.questionCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questionIndex {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 0.35rem;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.deleteBtn:hover {
+  background-color: #fee2e2;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.optionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox {
+  width: 1.15rem;
+  height: 1.15rem;
+  cursor: pointer;
+}
+
+.addBtn {
+  align-self: flex-start;
+  background-color: #f1f5f9;
+  border: 1px dashed #94a3b8;
+  color: #334155;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.addBtn:hover {
+  background-color: #e2e8f0;
+  border-color: #64748b;
+}
+
+.submitBtn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.15s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.submitBtn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
