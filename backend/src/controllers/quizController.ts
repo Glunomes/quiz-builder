@@ -1,5 +1,6 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import quizService from "../services/quizService";
+import { createQuizSchema  } from "../schemas/quizSchema";
 
 const getQuizzes = async (_req: Request, res: Response) => {
   try {
@@ -11,6 +12,27 @@ const getQuizzes = async (_req: Request, res: Response) => {
   }
 }
 
+const addQuizzes = async (req: Request, res: Response) => {
+  try {
+    const result = createQuizSchema.safeParse(req.body);
+
+    if (!result.success) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: result.error.issues,
+      });
+    }
+
+    const quiz = await quizService.createQuizzes(result.data);
+
+    return res.status(201).json(quiz);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export default {
   getQuizzes,
+  addQuizzes,
 }
