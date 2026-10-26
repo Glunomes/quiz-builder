@@ -8,7 +8,7 @@ export default defineConfig(
   globalIgnores([
     "dist/**",
     "node_modules/**",
-    "src/generated/**",
+    "generated/**",
     "prisma/**",
     "prisma.config.ts",
     "eslint.config.mjs",

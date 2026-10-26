@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 import quizService from "../services/quizService";
-import { createQuizSchema  } from "../schemas/quizSchema";
+import { createQuizSchema } from "../schemas/quizSchema";
+import { Prisma } from "../../generated/prisma/client";
 
 const getQuizzes = async (_req: Request, res: Response) => {
   try {
@@ -10,7 +11,7 @@ const getQuizzes = async (_req: Request, res: Response) => {
     console.error(error);
     res.status(500).json({ message: "Failed to fetch quizzes" });
   }
-}
+};
 
 const addQuizzes = async (req: Request, res: Response) => {
   try {
@@ -32,10 +33,10 @@ const addQuizzes = async (req: Request, res: Response) => {
   }
 };
 
-const getQuizz = async (req: Request<{ id: string }>, res: Response) => {
+const getQuiz = async (req: Request<{ id: string }>, res: Response) => {
   try {
-    const quizz = await quizService.getQuizzById(req.params.id);
-    if(!quizz) {
+    const quizz = await quizService.getQuizById(req.params.id);
+    if (!quizz) {
       return res.status(404).json({ message: "Quiz not found" });
     }
     return res.json(quizz);
@@ -43,10 +44,28 @@ const getQuizz = async (req: Request<{ id: string }>, res: Response) => {
     console.error(error);
     return res.status(500).json({ message: "Failed to fetch quizz" });
   }
-} 
+};
+
+const deleteQuiz = async (req: Request<{ id: string }>, res: Response) => {
+  try {
+    await quizService.deleteQuizById(req.params.id);
+    return res.status(204).send();
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      return res.status(404).json({ message: "Quiz not found" });
+    }
+
+    console.error(error);
+    return res.status(500).json({ message: "Failed to delete quiz" });
+  }
+};
 
 export default {
   getQuizzes,
   addQuizzes,
-  getQuizz,
-}
+  getQuiz,
+  deleteQuiz,
+};
