@@ -100,3 +100,22 @@ curl -X POST http://localhost:4000/quizzes \
     ]
   }'
 ```
+
+---
+
+## Production Build (Optional)
+
+### Backend
+To compile TypeScript and run the production build:
+```bash
+cd backend
+npm run build
+npm run start
+```
+
+### Frontend
+```bash
+cd frontend
+npm run build
+npm run preview
+```
