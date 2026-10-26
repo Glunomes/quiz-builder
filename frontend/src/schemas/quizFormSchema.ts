@@ -32,8 +32,7 @@ export const checkboxQuestionSchema = baseQuestionSchema.extend({
     })
     .refine(
       (options) =>
-        new Set(options.map((opt) => opt.text.trim().toLowerCase())).size ===
-        options.length,
+        new Set(options.map((opt) => opt.text.trim().toLowerCase())).size === options.length,
       { message: "Option texts must be unique" },
     ),
 });
@@ -52,7 +51,6 @@ export const createQuizSchema = z.object({
 export type CreateQuizFormData = z.infer<typeof createQuizSchema>;
 export type QuestionFormData = z.infer<typeof questionSchema>;
 export type OptionFormData = z.infer<typeof checkboxOptionSchema>;
-
 
 export const DEFAULT_BOOLEAN_QUESTION: Extract<QuestionFormData, { type: "BOOLEAN" }> = {
   type: "BOOLEAN",

@@ -67,7 +67,11 @@ export const QuizListPage = () => {
       {quizzes.length === 0 ? (
         <div className={styles.emptyState}>
           <p>No quizzes available yet.</p>
-          <Link to="/create" className={styles.viewBtn} style={{ display: "inline-block", marginTop: "1rem" }}>
+          <Link
+            to="/create"
+            className={styles.viewBtn}
+            style={{ display: "inline-block", marginTop: "1rem" }}
+          >
             Create Quiz
           </Link>
         </div>

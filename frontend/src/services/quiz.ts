@@ -31,5 +31,5 @@ export default {
   getAll,
   getById,
   createQuiz,
-  deleteQuiz
-}
+  deleteQuiz,
+};

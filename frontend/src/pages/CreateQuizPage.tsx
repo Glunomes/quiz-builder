@@ -83,11 +83,7 @@ export const CreateQuizPage = () => {
 
           {/* Тепер QuestionItem приймає лише 2 прості параметри замість 6 */}
           {fields.map((field, index) => (
-            <QuestionItem
-              key={field.id}
-              index={index}
-              onRemove={() => remove(index)}
-            />
+            <QuestionItem key={field.id} index={index} onRemove={() => remove(index)} />
           ))}
 
           {serverError && <p className={styles.error}>{serverError}</p>}

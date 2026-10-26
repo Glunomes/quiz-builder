@@ -14,7 +14,12 @@ interface QuestionItemProps {
 }
 
 export const QuestionItem = ({ index, onRemove }: QuestionItemProps) => {
-  const { register, control, setValue, formState: { errors } } = useFormContext<CreateQuizFormData>();
+  const {
+    register,
+    control,
+    setValue,
+    formState: { errors },
+  } = useFormContext<CreateQuizFormData>();
 
   const currentType = useWatch({
     control,
@@ -76,9 +81,7 @@ export const QuestionItem = ({ index, onRemove }: QuestionItemProps) => {
           className={styles.input}
           placeholder="Enter question text..."
         />
-        {questionError?.text && (
-          <span className={styles.error}>{questionError.text.message}</span>
-        )}
+        {questionError?.text && <span className={styles.error}>{questionError.text.message}</span>}
       </div>
 
       {currentType === "BOOLEAN" && (
@@ -143,9 +146,7 @@ export const QuestionItem = ({ index, onRemove }: QuestionItemProps) => {
                     <Trash2 size={16} />
                   </button>
                 )}
-                {optErrors?.text && (
-                  <span className={styles.error}>{optErrors.text.message}</span>
-                )}
+                {optErrors?.text && <span className={styles.error}>{optErrors.text.message}</span>}
               </div>
             );
           })}
