@@ -55,7 +55,22 @@ const createQuizzes = async (data: CreateQuizInput) => {
   });
 };
 
+const getQuizzById = async (id:string) => {
+  return prisma.quiz.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      questions: {
+        orderBy: { order: 'asc' },
+        include: { options: true }
+      }
+    }
+  });
+}
+
 export default {
   getAllQuizzes,
   createQuizzes,
+  getQuizzById,
 };

@@ -32,7 +32,21 @@ const addQuizzes = async (req: Request, res: Response) => {
   }
 };
 
+const getQuizz = async (req: Request<{ id: string }>, res: Response) => {
+  try {
+    const quizz = await quizService.getQuizzById(req.params.id);
+    if(!quizz) {
+      return res.status(404).json({ message: "Quiz not found" });
+    }
+    return res.json(quizz);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Failed to fetch quizz" });
+  }
+} 
+
 export default {
   getQuizzes,
   addQuizzes,
+  getQuizz,
 }
