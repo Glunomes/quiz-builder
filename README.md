@@ -10,7 +10,12 @@ cd backend
 ```bash
 npm install
 ```
-3. Initialize the SQLite database and apply Prisma schema:
+3. Create the local environment file from the example:
+```bash
+cp .env.example .env
+```
+On Windows PowerShell, use `Copy-Item .env.example .env`.
+4. Initialize the SQLite database and apply Prisma schema:
 ```bash
 npx prisma db push
 ```
@@ -21,11 +26,7 @@ npx prisma db push
 
 ### 1. Backend
 
-1. Check a `.env` file in the `backend` folder (content should be like this):
-```env
-PORT=4000
-DATABASE_URL="file:./dev.db"
-```
+1. Make sure `backend/.env` exists (see the setup step above for creating it from `.env.example`).
 2. Start the development server:
 ```bash
 npm run dev
@@ -42,15 +43,19 @@ cd frontend
 ```bash
 npm install
 ```
-3. Check a `.env` file in the `frontend` folder (content should be like this):
-```env
-VITE_API_URL=http://localhost:4000/quizzes
+3. Create the local environment file from the example:
+```bash
+cp .env.example .env
 ```
+On Windows PowerShell, use `Copy-Item .env.example .env`.
 4. Start the frontend application:
 ```bash
 npm run dev
 ```
 The client app will run at `http://localhost:5173`.
+
+Local `.env` files are ignored by Git. Do not put secrets in frontend environment variables:
+Vite variables prefixed with `VITE_` are included in the client bundle.
 
 ---
 

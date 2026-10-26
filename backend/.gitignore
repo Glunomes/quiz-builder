@@ -3,3 +3,7 @@ node_modules
 *.db
 *.db-journal
 dist
+
+.env
+.env.*
+!.env.example
