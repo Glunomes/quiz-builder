@@ -10,12 +10,16 @@ cd backend
 ```bash
 npm install
 ```
-3. Create the local environment file from the example:
+3. Generate the Prisma Client:
+```bash
+npx prisma generate
+```
+4. Create the local environment file from the example:
 ```bash
 cp .env.example .env
 ```
 On Windows PowerShell, use `Copy-Item .env.example .env`.
-4. Initialize the SQLite database and apply Prisma schema:
+5. Initialize the SQLite database and apply Prisma schema:
 ```bash
 npx prisma db push
 ```
