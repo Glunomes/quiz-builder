@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, useFieldArray, FormProvider } from "react-hook-form";
-import { customZodResolver } from "../utils/zodResolver";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
 import { createQuizSchema, DEFAULT_BOOLEAN_QUESTION } from "../schemas/quizFormSchema";
 import type { CreateQuizFormData } from "../schemas/quizFormSchema";
@@ -15,7 +15,7 @@ export const CreateQuizPage = () => {
   const [serverError, setServerError] = useState<string | null>(null);
 
   const methods = useForm<CreateQuizFormData>({
-    resolver: customZodResolver(createQuizSchema),
+    resolver: zodResolver(createQuizSchema),
     defaultValues: {
       title: "",
       questions: [{ ...DEFAULT_BOOLEAN_QUESTION, order: 0 }],
